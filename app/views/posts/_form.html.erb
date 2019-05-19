@@ -1,0 +1,12 @@
+<h3>Nuevo Post</h3>
+<p>Acá puedes crear un nuevo Post</p>
+
+<%= form_with model: @post do |f| %>
+  <%= f.label :title, "Titulo" %>
+  <%= f.text_field :title, placeholder: "Ingrese el titulo"  %>
+  <%= f.label :content, "Contenido" %>
+  <%= f.text_area :content, placeholder: "Ingrese el contenido" %>
+
+  <%= f.submit %>
+<% end %>
+
