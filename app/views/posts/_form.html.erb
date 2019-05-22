@@ -1,12 +1,27 @@
-<h3>Nuevo Post</h3>
-<p>Acá puedes crear un nuevo Post</p>
+<%= form_for (post) do |f| %>
+  <% if post.errors.any? %>
+    <div>
+      <h3> Lo siguiente prohibe que este post sea guardado: </h3>
+      
+      <ul>        
+        <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= form_with model: @post do |f| %>
-  <%= f.label :title, "Titulo" %>
-  <%= f.text_field :title, placeholder: "Ingrese el titulo"  %>
-  <%= f.label :content, "Contenido" %>
-  <%= f.text_area :content, placeholder: "Ingrese el contenido" %>
+  <h3>Nuevo Post</h3>
+  <p>Acá puedes crear un nuevo Post</p>
 
-  <%= f.submit %>
+    <%= f.label :title, "Titulo" %>
+    <%= f.text_field :title, placeholder: "Ingrese el titulo"  %>
+    <%= f.label :content, "Contenido" %>
+    <%= f.text_area :content, placeholder: "Ingrese el contenido" %>
+
+    <%= f.submit %>
+
+
+
 <% end %>
 

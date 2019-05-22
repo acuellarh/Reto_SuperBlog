@@ -1,13 +1,4 @@
 <h1>Crear Post</h1>
 
-<% if @post.errors.any? %>
-<ul>
-  <% @post.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-  <% end %>
-</ul>
-<% end %>
-
-
-<%= render 'form'%>
+<%= render 'form', post: @post%>
 
