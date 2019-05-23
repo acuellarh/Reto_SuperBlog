@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # Identificar el post por el id en los metodos anteriores, evitar repetir en los 4 métodos
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :asc) 
   end
 
   def show    

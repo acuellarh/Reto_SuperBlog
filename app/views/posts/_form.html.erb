@@ -1,27 +1,39 @@
-<%= form_for (post) do |f| %>
-  <% if post.errors.any? %>
-    <div>
-      <h3> Lo siguiente prohibe que este post sea guardado: </h3>
-      
-      <ul>        
-        <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-9">        
+        <%= form_for (post) do |f| %>
+        <% if post.errors.any? %>
+          <div>
+            <h3> Lo siguiente prohibe que este post sea guardado: </h3>
+            
+            <ul>        
+              <% post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+      
+        <h3>Nuevo Post</h3>
+        <p>Acá puedes crear un nuevo Post</p>
+          <div>
+            <%= f.label :title, "Titulo" %>
+            <%= f.text_field :title, placeholder: "Ingrese el titulo"  %>
+          </div>
+          <div>
+            <%= f.label :content, "Contenido" %>
+            <%= f.text_area :content, placeholder: "Ingrese el contenido" %>
+          </div>
+          <div>
+            <%= f.submit %>
+          </div>
+      
+      <% end %>
+      
+      
     </div>
-  <% end %>
-
-  <h3>Nuevo Post</h3>
-  <p>Acá puedes crear un nuevo Post</p>
-
-    <%= f.label :title, "Titulo" %>
-    <%= f.text_field :title, placeholder: "Ingrese el titulo"  %>
-    <%= f.label :content, "Contenido" %>
-    <%= f.text_area :content, placeholder: "Ingrese el contenido" %>
-
-    <%= f.submit %>
+  </div>
+</div>
 
 
-
-<% end %>
 
