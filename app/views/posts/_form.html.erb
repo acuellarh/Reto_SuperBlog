@@ -3,11 +3,11 @@
     <div class="col-sm-6">        
         <%= form_for (post) do |f| %>
         <% if post.errors.any? %>
-          <div>
-            <h5 class="alert alert-warning" role="alert"> Lo siguiente prohibe que este post sea guardado: </h5>            
+          <div class="alert alert-danger" role="alert">
+            <h5> Lo siguiente prohibe que este post sea guardado: </h5>            
             <ul>        
               <% post.errors.full_messages.each do |message| %>
-              <li class="alert alert-danger" role="alert"><%= message %></li>
+              <li><%= message %></li>
               <% end %>
             </ul>
           </div>
