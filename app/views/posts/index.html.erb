@@ -2,9 +2,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-9">
-        <h3><%= link_to  "Crear Post", new_post_path %></h3> 
-        <br>
-        <br>
+        <div class="text-right">
+          <h3><%= link_to  "Crear Post", new_post_path, class: "btn btn-primary" %></h3> 
+        </div> 
+        
         <% @posts.each do |post| %>
         <h3><%= link_to post.title, post %></h3>
         <h6>Publicado por <%= post.user.email %>
