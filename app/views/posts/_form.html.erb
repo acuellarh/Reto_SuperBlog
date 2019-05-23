@@ -1,31 +1,30 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-9">        
+    <div class="col-sm-6">        
         <%= form_for (post) do |f| %>
         <% if post.errors.any? %>
           <div>
-            <h3> Lo siguiente prohibe que este post sea guardado: </h3>
-            
+            <h5 class="alert alert-warning" role="alert"> Lo siguiente prohibe que este post sea guardado: </h5>            
             <ul>        
               <% post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+              <li class="alert alert-danger" role="alert"><%= message %></li>
               <% end %>
             </ul>
           </div>
         <% end %>
       
-        <h3>Nuevo Post</h3>
-        <p>Acá puedes crear un nuevo Post</p>
-          <div>
-            <%= f.label :title, "Titulo" %>
-            <%= f.text_field :title, placeholder: "Ingrese el titulo"  %>
+        <h1>Publicar Post</h1>
+
+          <div class="form-group">  
+            <%= f.text_field :title, class: "form-control input-lg",
+            placeholder: "Ingrese el titulo del Post"%>
           </div>
+          <div class="form-group">
+            <%= f.text_area :content, class: "form-control input-lg",
+            placeholder: "Ingrese el contenido del Post, mínimo 250 caracteres" %>
+          </div>           
           <div>
-            <%= f.label :content, "Contenido" %>
-            <%= f.text_area :content, placeholder: "Ingrese el contenido" %>
-          </div>
-          <div>
-            <%= f.submit %>
+            <%= f.submit "Publicar Post", class: "btn btn-primary btn-lg btn-block" %>
           </div>
       
       <% end %>
