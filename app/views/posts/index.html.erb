@@ -21,6 +21,9 @@
             <%= post.content %>
             <%end%> 
           </p>
+          <div>
+              <span class="comment-count"><%= post.comments.count %></span>
+          </div>
           <% if user_signed_in? && current_user.id == post.user_id %>
           <%= link_to "Editar", edit_post_path(post) %>
           <%= link_to 'Eliminar Post', post, method: :delete, data: { confirm: 'Esta seguro de eliminar el Post ?' } %>	
