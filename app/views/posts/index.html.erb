@@ -3,10 +3,11 @@
   <div class="row justify-content-center">
     <div class="col-sm-9">
         <% if user_signed_in?%>
+        <%= image_tag gravatar_url(current_user.email , 64), alt: "" %> 
           <div class="text-right">
             <h3><%= link_to  "Crear Post", new_post_path, class: "btn btn-primary" %></h3> 
           </div> 
-         <%end%> 
+         <%end%>
         <% @posts.each do |post| %>
         <h3><%= link_to post.title, post %></h3>
         <h6>Publicado por <%= post.user.email %>
