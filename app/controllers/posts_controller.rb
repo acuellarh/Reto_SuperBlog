@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :current_post, only: [:show, :edit, :update, :destroy]
   # Identificar el post por el id en los metodos anteriores, evitar repetir en los 4 métodos
 
