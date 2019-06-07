@@ -7,36 +7,112 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
 
-      <% flash.each do |key, value| %>
-      <div class="alerta">
-       <div class="<%= flash_class(key) %>">
-         <%= value %>
+  <!-- Header   -->  
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+       <div class="container">
+          <a class="navbar-brand" href="#">ACH SuperBlog</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">                  
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item mr-3 mt-2">           
+                <div>
+                    <%= link_to  "Inicio", posts_path %>
+                </div>
+              </li>
+              <li class="nav-item mr-3 mt-2">            
+                <% if user_signed_in?%>
+                <div>
+                  <%= link_to  "Salir", destroy_user_session_path, method: :delete %>
+                </div>
+                <% else%>
+                <div>
+                    <%= link_to  "Ingresar", new_user_session_path %>
+                </div>
+                <% end%> 
+              </li>                       
+              <li class="nav-item active">
+                <!-- <a class="btn btn-primary" href="#">Registrarse</a> -->
+                <%= link_to  "Registrarse", new_user_registration_path, class: "btn btn-outline-light" %>
+              </li>                       
+            </ul>                  
+          </div>
        </div>
-       <% end %>
-      </div>
- 
+    </nav> 
+  <!-- /Header   -->
 
-    <% if user_signed_in?%>
-      <div>
-        <%= link_to  "Salir", destroy_user_session_path, method: :delete %>
-      </div>
-      <% else%>
-      <div>
-          <%= link_to  "Iniciar", new_user_session_path %>
-      </div>
-    <% end%>  
+  <% flash.each do |key, value| %>
+  <div class="alerta">
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- Main  -->
+  <main id="main">
+    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag("image2.jpg", {class: "d-block w-100 style-img-main"}) %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("image3.jpg", {class: "d-block w-100 style-img-main"}) %>
+          </div>
+          <div class="overlay"> <!-- efecto gris claro de fondo  --> 
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-6 offset-md-6 text-center text-md-right">
+                  <h1>Blog Alejandro Cuellar</h1>
+                  <p class="d-none d-md-block">
+                    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                    "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+                  </p>
+                  <%= link_to  "Ingresar", new_user_session_path %>
+                  <%= link_to  "Registrarse", new_user_registration_path, class: "btn btn-outline-light" %>
+                </div>
+              </div>    
+            </div>
+          </div>
+        </div>
+
+      </div> 
+  </main>
+  
+  <!-- /Main  --> 
 
     <%= yield %>
+
+
+  <!-- Footer -->
+    <footer class="pb-4 pt-4 brand-color">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12 col-lg">
+            <%= link_to "Contáctanos" %>
+          </div>
+          <div class="col-12 col-lg">
+            <%= link_to "Blog" %>
+          </div>
+          <div class="col-12 col-lg ">
+            <%= link_to "Términos y condiciones" %>
+          </div>
+        </div>      
+      </div>
+    </footer>
+    <!-- /Footer -->  
 
     <script>
         $(".alert").fadeIn(500).css("opacity", "0.85").delay(6000).slideUp(1000);
         $(".alerta").on('click', '.alert', function () { $(this).remove() })
-      </script>
-   
+    </script>  
 
   </body>
 </html>

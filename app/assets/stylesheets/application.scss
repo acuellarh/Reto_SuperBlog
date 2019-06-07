@@ -1,1 +1,42 @@
 @import "bootstrap";
+
+$color_white : white!default;
+$color-brand: rgb(35, 40, 46);
+
+.brand-color {
+    background-color: $color-brand;
+}
+
+.style-img-main {
+    max-height: 70vh;
+    object-fit: cover;
+    filter: grayscale(70%);
+}
+
+#carousel {
+    position: relative;
+}
+
+#carousel .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    color: white;
+    z-index: 1;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .row {
+    height: 100%;
+}
+
+#footer a:link, a:visited {          
+    color: white;    
+    text-align: center; 
+    
+    display: inline-block;
+}
+
