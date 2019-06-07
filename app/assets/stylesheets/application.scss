@@ -1,10 +1,17 @@
 @import "bootstrap";
 
 $color_white : white!default;
+$color_black : black;
 $color-brand: rgb(35, 40, 46);
+$color-yellow-brand: #F8E71C;
 
 .brand-color {
     background-color: $color-brand;
+}
+
+.btn-outline-light:hover {
+    background-color: $color-yellow-brand;
+    color: $color_black;
 }
 
 .style-img-main {
@@ -33,10 +40,10 @@ $color-brand: rgb(35, 40, 46);
     height: 100%;
 }
 
+
 #footer a:link, a:visited {          
-    color: white;    
-    text-align: center; 
-    
+    color: $color-yellow-brand;    
+    text-align: center;    
     display: inline-block;
 }
 
