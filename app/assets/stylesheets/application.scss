@@ -9,6 +9,11 @@ $color-yellow-brand: #F8E71C;
     background-color: $color-brand;
 }
 
+.btn-yellow-brand {
+    background-color: $color-yellow-brand;
+    color: $color_black;   
+}
+
 .btn-outline-light:hover {
     background-color: $color-yellow-brand;
     color: $color_black;
@@ -40,10 +45,23 @@ $color-yellow-brand: #F8E71C;
     height: 100%;
 }
 
-
-#footer a:link, a:visited {          
-    color: $color-yellow-brand;    
-    text-align: center;    
-    display: inline-block;
+footer,
+nav,
+.overlay {
+    a {
+        color: $color-yellow-brand; 
+    }
+    a:hover {       
+        color: $color_white;
+    }
 }
+
+
+
+
+// #footer a:link, a:visited {          
+//     color: $color-yellow-brand;    
+//     text-align: center;    
+//     display: inline-block;
+// }
 

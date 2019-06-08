@@ -15,7 +15,7 @@
   <!-- Header   -->  
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
        <div class="container">
-          <a class="navbar-brand" href="#">ACH SuperBlog</a>
+          <a class="navbar-brand text-warning" href="#">ACH SuperBlog</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -38,9 +38,8 @@
                 </div>
                 <% end%> 
               </li>                       
-              <li class="nav-item active">
-                <!-- <a class="btn btn-primary" href="#">Registrarse</a> -->
-                <%= link_to  "Registrarse", new_user_registration_path, class: "btn btn-outline-light" %>
+              <li class="nav-item active">                
+                <%= link_to  "Registrarse", new_user_registration_path, class: "btn btn-yellow-brand" %>
               </li>                       
             </ul>                  
           </div>
@@ -56,37 +55,7 @@
     <% end %>
   </div>
 
-  <!-- Main  -->
-  <main id="main">
-    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%= image_tag("image2.jpg", {class: "d-block w-100 style-img-main"}) %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag("image3.jpg", {class: "d-block w-100 style-img-main"}) %>
-          </div>
-          <div class="overlay"> <!-- efecto gris claro de fondo  --> 
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-md-6 offset-md-6 text-center text-md-right">
-                  <h1>Blog Alejandro Cuellar</h1>
-                  <p class="d-none d-md-block">
-                    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                    "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
-                  </p>
-                  <%= link_to  "Ingresar", new_user_session_path %>
-                  <%= link_to  "Registrarse", new_user_registration_path, class: "btn btn-outline-light" %>
-                </div>
-              </div>    
-            </div>
-          </div>
-        </div>
 
-      </div> 
-  </main>
-  
-  <!-- /Main  --> 
 
     <%= yield %>
 

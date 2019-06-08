@@ -1,5 +1,6 @@
+<%= render 'index-main' %>
 
-<div class="container">
+<div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-sm-9">
         <% if user_signed_in?%>
@@ -7,12 +8,14 @@
           <div class="text-right">
             <h3><%= link_to  "Crear Post", new_post_path, class: "btn btn-primary" %></h3> 
           </div> 
-         <%end%>
+        <%end%>        
         <% @posts.each do |post| %>
-        <h3><%= link_to post.title, post %></h3>
-        <h6>Publicado por <%= post.user.email %>
-            hace alrededor <%= time_ago_in_words(post.created_at)  %>
+        <!-- <%= image_tag gravatar_url(post.user.email , 64), alt: "Image of post creator", class: "mx-auto d-block" %>  -->
+        <h6 class="text-left">Publicado por <%= post.user.email%>
+           <%= (post.created_at.strftime("%B #{post.created_at.day.ordinalize}, %Y") )  %>
+          <!-- hace alrededor <%= time_ago_in_words(post.created_at)  %> -->
         </h6>
+        <h3 class="text-center"><%= link_to post.title, post %></h3>       
         <br>
           <p>
             <%if post.content.length > 250 %>
@@ -23,7 +26,7 @@
             <%end%> 
           </p>
           <div>
-              <span class="comment-count"><%= post.comments.count %></span>
+              <span class="comment-count"> Comentarios <%= post.comments.count %></span>
           </div>
           <% if user_signed_in? && current_user.id == post.user_id %>
           <%= link_to "Editar", edit_post_path(post) %>
