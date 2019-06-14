@@ -4,14 +4,32 @@ $color_white : white!default;
 $color_black : black;
 $color-brand: rgb(35, 40, 46);
 $color-yellow-brand: #F8E71C;
+$color-blue-brand: #5522fa;
 
 .brand-color {
     background-color: $color-brand;
 }
 
+.brand-blue {
+    color: $color-blue-brand;
+}
+
+.brand-black {
+    color: $color_black;
+}
+
+.brand-black:hover {
+    color: $color-blue-brand;
+}
+
 .btn-yellow-brand {
     background-color: $color-yellow-brand;
     color: $color_black;   
+}
+
+.btn-blue-brand {
+    background-color: $color-blue-brand;
+    color: $color_white;   
 }
 
 .btn-outline-light:hover {
@@ -22,6 +40,12 @@ $color-yellow-brand: #F8E71C;
 .style-img-main {
     max-height: 70vh;
     object-fit: cover;
+    filter: grayscale(70%);
+}
+
+.style-img-who {
+    max-height: 20px;
+    
     filter: grayscale(70%);
 }
 
