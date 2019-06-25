@@ -12,7 +12,9 @@
 
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
+      # dependent: :destroy means the comments related
+      # to the specific post in mention get deleted if the post does.
   validates :title, presence: { message: "Debe escribir un título"} 
   validates :content, length: {minimum: 250, too_short: "El numero de caracteres debe ser mayor a %{count}"  } 
 
