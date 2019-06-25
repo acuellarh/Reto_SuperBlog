@@ -3,8 +3,8 @@
     <div class="colum-sm-9">
       <div class="post">  
         <%= image_tag gravatar_url(@post.user.email , 64), alt: "" %>
-        <h1><%=@post.title %></h1>
-        <p><%= @post.content%></p> 
+        <h1><%=@post.title %></h1>        
+        <p><%= markdown(@post.content) %></p>
         
 
         <% if user_signed_in? && current_user.id == @post.user_id %>        

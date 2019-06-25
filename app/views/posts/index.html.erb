@@ -35,8 +35,8 @@
               </div>
               <br>
                 <p>
-                  <%if post.content.length > 250 %>
-                  <%= truncate(post.content, length: 250) %>
+                  <%if post.content.length > 250 %>                 
+                  <%= markdown(truncate(post.content, length: 250)) %>
                   <%= link_to "Leer más ...", post, class: "brand-blue" %>
                   <%else%>
                   <%= post.content %>
