@@ -3,19 +3,20 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-sm-8">
-        <% if user_signed_in?%>
-        <%= image_tag gravatar_url(current_user.email , 64), alt: "" %> 
+        <% if user_signed_in?%>        
           <div class="text-right">
-            <h3><%= link_to  "Crear Post", new_post_path, class: "btn btn-primary" %></h3> 
+            <h3><%= link_to  "Crear Nuevo Post", new_post_path, class: "btn btn-primary" %></h3> 
+            <br>
           </div> 
         <%end%> 
 
         <!-- Posts -->
+        
         <section id="post-index-section mb-4">
           <div class="container">
             <div class="row">
               <div class="col text-center ">
-                <h2 class="text-uppercase">Artículos</h2>               
+                <h2 class="text-uppercase h1">Artículos</h2>               
               </div>
             </div>
           </div>
@@ -31,7 +32,7 @@
                 </div>     
               </div>
               <div>
-                <h2 class="text-center"><%= link_to post.title, post, class: "brand-black h1"%></h2>
+                <h2 class="text-center"><%= link_to post.title, post, class: "brand-black h2"%></h2>
               </div>
               <br>
                 <p>
@@ -44,13 +45,16 @@
                 </p>
               <br>             
                 <% if user_signed_in? && current_user.id == post.user_id %>
-                <%= link_to "Editar", edit_post_path(post) %>
-                <%= link_to 'Eliminar Post', post, method: :delete, data: { confirm: 'Esta seguro de eliminar el Post ?' } %>	
-                <%end%> 
+                <%= link_to "Editar", edit_post_path(post), class: "brand-blue" %>
+                <br>
+                <%= link_to 'Eliminar Post', post, method: :delete, data: { confirm: 'Esta seguro de eliminar el Post ?' }, class: "brand-blue" %>	
+                <%end%>                
+                <hr style="color:#F8E71C; background-color: #F8E71C; height: 0.1em;" />
                <%end%>
             </div>
           </div>
         </section>
+        
          <!-- Posts -->
     </div>
   </div>

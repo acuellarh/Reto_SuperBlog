@@ -1,22 +1,31 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="colum-sm-9">
+    <div class="col-sm-10">
       <div class="post">  
-        <%= image_tag gravatar_url(@post.user.email , 64), alt: "" %>
-        <h1><%=@post.title %></h1>        
-        <p><%= markdown(@post.content) %></p>
-        
+        <h1 class="mt-4 text-center"><%=@post.title %></h1> 
+        <%= image_tag gravatar_url(@post.user.email , 64), alt: "Image of post creator", class: "mx-auto d-block rounded-circle mt-4 mb-4" %> 
+        <div class="text-center text-uppercase font-italic font-weight-bold mb-4">
+            <span class="brand-blue"><%= @post.user.username%> |</span>
+            <%= (@post.created_at.strftime("%B #{@post.created_at.day.ordinalize}, %Y") )%> |
+            <span class="brand-blue"> Comentarios <%= @post.comments.count %></span>
+        </div> 
+        <hr style="color:#F8E71C; background-color: #F8E71C; height: 0.1em;" />
 
-        <% if user_signed_in? && current_user.id == @post.user_id %>        
-        <%= link_to "Volver", posts_path %>
-        <br>
-        <%= link_to "Editar", edit_post_path %>
-        <br>
-        <%= link_to 'Eliminar Post', @post, method: :delete, data: { confirm: 'Esta seguro de eliminar el Post ?' } %> 
-        <%end%>
+        <p class="mt-4"><%= markdown(@post.content) %></p>
+
+        
+        <div>
+          <% if user_signed_in? && current_user.id == @post.user_id %>        
+          <%= link_to "Volver", posts_path, class: "brand-blue" %>
+          <br>
+          <%= link_to "Editar", edit_post_path, class: "brand-blue" %>
+          <br>
+          <%= link_to 'Eliminar Post', @post, method: :delete, class: "brand-blue", data: { confirm: 'Esta seguro de eliminar el Post ?' } %> 
+          <%end%>
+        </div>
 
         <div class="comments">
-          <h2>Comentarios</h2>
+          <h2 class="brand-blue font-italic font-weight-bold text-center">Comentarios</h2>
           <hr>
 
           <%= render 'comments/list' %>
@@ -41,7 +50,7 @@
             <% end %>
           <% end %>
 
-          <p><%= link_to "Inicio", posts_path, class: "enlace" %></p>
+          <h3><%= link_to  "Volver al inicio de este Post", post_path, class: "btn btn-primary" %></h3> 
 
         </div>               
       </div> <!-- Fin div class post -->       

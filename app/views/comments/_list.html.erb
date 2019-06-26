@@ -1,6 +1,6 @@
 <% @post.comments.each do |comment| %>
   <div class="panel panel-default">
-    <%= image_tag gravatar_url(comment.user.email , 26), alt: "" %> <strong><%=comment.user.email%></strong>
+    <%= image_tag gravatar_url(comment.user.email , 26), alt: "Image of post creator", class: "mx-auto rounded-circle" %> <strong><%=comment.user.email%></strong>
     <br>
     <br>
     <div class="panel-body">
