@@ -25,10 +25,15 @@
             <div class="col">
               <%= image_tag gravatar_url(post.user.email , 64), alt: "Image of post creator", class: "mx-auto d-block rounded-circle mt-4" %> 
               <div class="p-2">
-                <div class="text-center text-uppercase font-italic font-weight-bold">
-                  <span class="brand-blue"><%= post.user.username%> |</span>
-                  <%= (post.created_at.strftime("%B #{post.created_at.day.ordinalize}, %Y") )%> |
-                  <span class="brand-blue"> Comentarios <%= post.comments.count %></span>
+                <div class="text-center text-uppercase font-italic font-weight-bold">                  
+                  <small>
+                    <strong>
+                      <!-- <span class="brand-blue"><%= post.user.username%> |</span> -->
+                      <span class="brand-blue"><%= post.user.email%> |</span>                  
+                      <%= (post.created_at.strftime("%B #{post.created_at.day.ordinalize}, %Y") )%> |
+                      <span class="brand-blue"> Comentarios <%= post.comments.count %></span>
+                    </strong>
+                  </small>
                 </div>     
               </div>
               <div>
