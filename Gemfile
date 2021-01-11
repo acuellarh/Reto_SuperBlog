@@ -45,7 +45,7 @@ gem 'jquery-rails'
 gem 'devise'
 
 # Gem redcarpet for markdown use
-gem 'redcarpet', '~> 3.4'
+gem 'redcarpet', '~> 3.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
